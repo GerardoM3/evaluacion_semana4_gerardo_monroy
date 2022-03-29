@@ -50,4 +50,12 @@ public class salario_empleado extends horas_extras {
         return resultado;
     }
     
+    public String info(){
+        String result = "";
+        result = "Nombre del empleado: " + this.getNombre_empleado();
+        result += "\nSalario bruto: $" + this.getSalario();
+        result += "\nSalario liquido: $" + this.salario_renta();
+        result += "\nSalario final: $" + this.salarioFinal();
+        return result;
+    }
 }

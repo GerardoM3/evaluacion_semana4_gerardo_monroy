@@ -5,8 +5,6 @@ public class horas_extras {
     
     private double pago_hora;
     private int horas_trabajadas_mes;
-    
-    salario_empleado emp = new salario_empleado();
 
     public horas_extras() {
     }
