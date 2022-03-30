@@ -4,6 +4,9 @@ Código de Gerardo Misael Monroy Moza
 
 package ejercicio1;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class salario_empleado extends horas_extras {
     private String nombre_empleado;
     private double  salario, renta = 0.1;
@@ -13,8 +16,9 @@ public class salario_empleado extends horas_extras {
         this.salario = salario;
     }
 
-    public double getRenta(double salario) {
-        renta = salario * renta;
+    public double getRenta() {
+        double renta;
+        renta = this.salario * this.renta;
         return renta;
     }
 
@@ -40,7 +44,7 @@ public class salario_empleado extends horas_extras {
     
     public double salario_renta(){
         double resultado;
-        resultado = this.getSalario() - this.getRenta(this.getSalario());
+        resultado = this.getSalario() - this.getRenta();
         return resultado;
     }
     
@@ -51,11 +55,14 @@ public class salario_empleado extends horas_extras {
     }
     
     public String info(){
-        String result = "";
-        result = "Nombre del empleado: " + this.getNombre_empleado();
-        result += "\nSalario bruto: $" + this.getSalario();
-        result += "\nSalario liquido: $" + this.salario_renta();
-        result += "\nSalario final: $" + this.salarioFinal();
+        NumberFormat formato = new DecimalFormat("#.##");
+        String result = "_________________________________________________________________________";
+        result += "\nNombre del empleado: " + this.getNombre_empleado();
+        result += "\nSalario bruto (sin descuento alguno): $" + formato.format(this.getSalario());
+        result += "\nSalario liquido (con descuento de la renta): $" + formato.format(this.salario_renta());
+        result += "\nPago total por las horas extras: $" + formato.format(this.total_horas_extras());
+        result += "\n" +this.total_horas_extras_text();
+        result += "\nSalario final: $" + formato.format(this.salarioFinal());
         return result;
     }
 }

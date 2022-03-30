@@ -17,6 +17,7 @@ public class empleado {
         salario_emp.setHoras_trabajadas_mes(Integer.parseInt(leer.nextLine()));
         System.out.print("Ingrese el pago por horas trabajadas: $");
         salario_emp.setPago_hora(Double.parseDouble(leer.nextLine()));
+        
         String imprimir = salario_emp.info();
         System.out.println(imprimir);
         
